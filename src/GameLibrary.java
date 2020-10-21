@@ -39,7 +39,7 @@ public class GameLibrary extends ItemLibrary
 	{
 		for (Item item : itemList)
 		{
-			Game game = (Game)item;
+			Game game = (Game) item;
 
 			if (genre.equals(game.getGenre()))
 			{

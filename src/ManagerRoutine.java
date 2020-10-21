@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class ManagerRoutine {
+public class ManagerRoutine
+{
 
 	private EmployeeLibrary employeeLibrary;
 	private GameLibrary gameLibrary;
@@ -86,13 +87,13 @@ public class ManagerRoutine {
 						System.out.println("-------------------------------------------");
 						break;
 
-					case"10":
+					case "10":
 						System.out.println("-------Print most profitable Customer------");
 						customerLibrary.printMostProfitable();
 						System.out.println("-------------------------------------------");
 						break;
 
-					case"11":
+					case "11":
 						System.out.println("-----Print rent frequency of games and album -----");
 						gameLibrary.printRentFrequency();
 						albumLibrary.printRentFrequency();

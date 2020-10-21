@@ -70,5 +70,5 @@ public class Controller
 		albumLibrary.addAlbum(2, "Mozart", "Wolfgang Amadeus Mozart", 1779, 10);
 		albumLibrary.addAlbum(3, "Rap God", "Eminem", 2010, 8);
 	}
-	
+
 }

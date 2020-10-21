@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class EmployeeRoutine {
+public class EmployeeRoutine
+{
 
 	private GameLibrary gameLibrary;
 	private CustomerLibrary customerLibrary;
@@ -33,7 +34,9 @@ public class EmployeeRoutine {
 						break;
 
 					case "2":
+						System.out.println("---------------GAMES---------------");
 						gameLibrary.printAllGames();
+						System.out.println("-----------------------------------");
 						Print.printRemoveGame();
 						idToRemove = scanner.nextInt();
 						scanner.nextLine();
@@ -45,7 +48,9 @@ public class EmployeeRoutine {
 						break;
 
 					case "4":
+						System.out.println("--------------CUSTOMERS--------------");
 						customerLibrary.printAllCustomers();
+						System.out.println("-------------------------------------");
 						Print.printRemoveCustomer();
 
 						id = scanner.nextInt();
@@ -68,7 +73,9 @@ public class EmployeeRoutine {
 						break;
 
 					case "8":
+						System.out.println("-----------------ALBUMS----------------");
 						albumLibrary.printAllAlbums();
+						System.out.println("---------------------------------------");
 						Print.printRemoveSongAlbum();
 						idToRemove = scanner.nextInt();
 						scanner.nextLine();
@@ -76,9 +83,9 @@ public class EmployeeRoutine {
 						break;
 
 					case "9":
-						System.out.println("------MEMBERSHIP REQUESTS------");
+						System.out.println("----------MEMBERSHIP REQUESTS----------");
 						printRequestList();
-						System.out.println("-------------------------------");
+						System.out.println("---------------------------------------");
 						break;
 
 					default:
@@ -157,7 +164,6 @@ public class EmployeeRoutine {
 		scanner.nextLine();
 
 		albumLibrary.addAlbum(id, title, artist, releaseYear, rentPerDay);
-
 	}
 
 	public void printRequestList()

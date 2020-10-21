@@ -16,7 +16,7 @@ public class CustomerLibrary
 	//--------------METHODS------------
 	public void addCustomer(int id, String name, String password)
 	{
-		if(!contains(id))
+		if (!contains(id))
 		{
 			Customer c = new Customer(id, name, password);
 			customerList.add(c);
@@ -74,9 +74,9 @@ public class CustomerLibrary
 		customerList.trimToSize();
 		Customer mostProfitableCustomer = customerList.get(0);
 
-		for(Customer customer : customerList)
+		for (Customer customer : customerList)
 		{
-			if(mostProfitableCustomer.getTotalRentProfit() < customer.getTotalRentProfit())
+			if (mostProfitableCustomer.getTotalRentProfit() < customer.getTotalRentProfit())
 			{
 				mostProfitableCustomer = customer;
 			}
@@ -99,7 +99,7 @@ public class CustomerLibrary
 
 	public void printAllCustomers()
 	{
-		for(Customer customer : customerList)
+		for (Customer customer : customerList)
 		{
 			System.out.println(customer.toString());
 		}

@@ -85,7 +85,7 @@ public class Customer
 
 	public int rentLimit()
 	{
-		switch(membership)
+		switch (membership)
 		{
 			case silver:
 				return 3;
@@ -103,19 +103,19 @@ public class Customer
 		switch (membership)
 		{
 			case silver:
-				credits +=1;
+				credits += 1;
 				break;
 			case gold:
-				credits +=2;
+				credits += 2;
 			case platinum:
-				credits +=3;
+				credits += 3;
 
 		}
 	}
 
 	public boolean getsForFree()
 	{
-		if(credits >=5)
+		if (credits >= 5)
 		{
 			credits = credits - 5;
 			return true;
@@ -128,7 +128,7 @@ public class Customer
 
 	public double discount()
 	{
-		switch(membership)
+		switch (membership)
 		{
 			case silver:
 				return 0.9;
@@ -165,11 +165,11 @@ public class Customer
 	public void printMessages()
 	{
 		System.out.println("-------------UNREAD MESSAGES------------");
-		if(!inbox.isEmpty())
+		if (!inbox.isEmpty())
 		{
-			for(Message message : inbox)
+			for (Message message : inbox)
 			{
-				if(!message.getIsRead())
+				if (!message.getIsRead())
 				{
 					System.out.println(message.toString());
 					message.viewedMessage();

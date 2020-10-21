@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class CustomerRoutine {
+public class CustomerRoutine
+{
 
 	private GameLibrary gameLibrary;
 	private CustomerLibrary customerLibrary;
@@ -72,7 +73,7 @@ public class CustomerRoutine {
 						System.out.println("---------------------------------");
 						break;
 
-					case"10":
+					case "10":
 						System.out.println("---------------------------------");
 						searchItem();
 						System.out.println("---------------------------------");

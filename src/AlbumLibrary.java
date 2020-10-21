@@ -19,11 +19,11 @@ public class AlbumLibrary extends ItemLibrary
 			albumList.add(album);
 			System.out.println("Game added!");
 		}
-		else if(contains(id))
+		else if (contains(id))
 		{
 			System.out.println("Game with ID: " + id + " already exist.");
 		}
-		else if(title.isEmpty())
+		else if (title.isEmpty())
 		{
 			System.out.println("Invalid data. Game title cannot be empty.");
 		}
@@ -125,15 +125,16 @@ public class AlbumLibrary extends ItemLibrary
 	{
 		for (Album album : albumList)
 		{
-			if(album.getId() == id)
+			if (album.getId() == id)
 				album.addReview(review);
 		}
 	}
 
 	public void printByYear(int year)
 	{
-		for (Album album : albumList) {
-			if(year == (album.getReleaseYear()))
+		for (Album album : albumList)
+		{
+			if (year == (album.getReleaseYear()))
 			{
 				System.out.println(album.toString());
 			}
@@ -144,7 +145,7 @@ public class AlbumLibrary extends ItemLibrary
 	{
 		for (Album album : albumList)
 		{
-			for(Review review : album.getReviews())
+			for (Review review : album.getReviews())
 			{
 				System.out.println(review.toString());
 			}
@@ -156,9 +157,9 @@ public class AlbumLibrary extends ItemLibrary
 		albumList.trimToSize();
 		Album mostProfitableAlbum = albumList.get(0);
 
-		for(Album album : albumList)
+		for (Album album : albumList)
 		{
-			if(mostProfitableAlbum.getTotalRentProfit() < album.getTotalRentProfit())
+			if (mostProfitableAlbum.getTotalRentProfit() < album.getTotalRentProfit())
 			{
 				mostProfitableAlbum = album;
 			}

@@ -18,11 +18,13 @@ public abstract class ItemBase
 		this.reviews = new ArrayList<>();
 	}
 
-	public int getId() {
+	public int getId()
+	{
 		return id;
 	}
 
-	public String getTitle() {
+	public String getTitle()
+	{
 		return title;
 	}
 
@@ -31,7 +33,8 @@ public abstract class ItemBase
 		return reviews;
 	}
 
-	public double getDailyRent() {
+	public double getDailyRent()
+	{
 		return dailyRent;
 	}
 
@@ -63,7 +66,7 @@ public abstract class ItemBase
 
 	public double getAverageRating()
 	{
-		if(reviews.isEmpty())
+		if (reviews.isEmpty())
 		{
 			return 0;
 		}
@@ -71,25 +74,29 @@ public abstract class ItemBase
 		{
 			int accumulatedRatings = 0;
 
-			for(Review review : reviews)
+			for (Review review : reviews)
 			{
-				if(review.isRatingValid())
+				if (review.isRatingValid())
 					accumulatedRatings += review.getRating();
 			}
 			return (double) accumulatedRatings / (double) reviews.size();
 		}
 	}
-	
-	public int compareTo(Item item) {
-		if(this.getAverageRating() < item.getAverageRating())
+
+	public int compareTo(Item item)
+	{
+		if (this.getAverageRating() < item.getAverageRating())
 		{
 			return -1;
 
-		} else if(this.getAverageRating() > item.getAverageRating())
+		}
+		else if (this.getAverageRating() > item.getAverageRating())
 		{
 			return 1;
 
-		} else {
+		}
+		else
+		{
 			// Both items have the exact same rating
 			return 0;
 		}

@@ -15,7 +15,7 @@ public class EmployeeLibrary
 	//--------------METHODS------------
 	public void addEmployee(int id, String name, int birthYear, String address, double grossSalary)
 	{
-		if(grossSalary >= 0 && !name.isEmpty() && !contains(id))
+		if (grossSalary >= 0 && !name.isEmpty() && !contains(id))
 		{
 			Employee e = new Employee(id, name, birthYear, address, grossSalary);
 			employeeList.add(e);
@@ -101,6 +101,7 @@ public class EmployeeLibrary
 			System.out.println("Employee with ID: " + id + "was not found");
 		}
 	}
+
 	public boolean contains(int id)
 	{
 		for (Employee employee : employeeList)
