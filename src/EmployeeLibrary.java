@@ -15,8 +15,24 @@ public class EmployeeLibrary
 	//--------------METHODS------------
 	public void addEmployee(int id, String name, int birthYear, String address, double grossSalary)
 	{
-		Employee employee = new Employee(id, name, birthYear, address, grossSalary); //Create the employee
-		employeeList.add(employee);    //Add the employee to the list
+		if(grossSalary >= 0 && !name.isEmpty() && !contains(id))
+		{
+			Employee e = new Employee(id, name, birthYear, address, grossSalary);
+			employeeList.add(e);
+			System.out.println("Employee added!");
+		}
+		else if (grossSalary < 0)
+		{
+			System.out.println("Invalid data. Employee salary cannot be negative.");
+		}
+		else if (name.isEmpty())
+		{
+			System.out.println("Invalid data. Employee name cannot be empty.");
+		}
+		else if (contains(id))
+		{
+			System.out.println("Employee with ID: " + id + " already exist.");
+		}
 	}
 
 	public void removeEmployee(int idToRemove)
@@ -29,7 +45,7 @@ public class EmployeeLibrary
 			{
 				employeeList.remove(employee);        // Remove employee from gameList
 				foundEmployee = true;        //Employee found!
-				break;                        //No use in looking any more
+				System.out.println("Employee removed.");
 			}
 		}
 
@@ -39,7 +55,7 @@ public class EmployeeLibrary
 		}
 	}
 
-	public void printConsole()
+	public void printAllEmployees()
 	{
 		for (Employee employee : employeeList)                //For each  "employee" in employeeList
 		{
@@ -84,6 +100,18 @@ public class EmployeeLibrary
 		{
 			System.out.println("Employee with ID: " + id + "was not found");
 		}
+	}
+	public boolean contains(int id)
+	{
+		for (Employee employee : employeeList)
+		{
+			if (id == employee.getId())
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 }

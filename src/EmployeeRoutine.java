@@ -1,20 +1,19 @@
-
 import java.util.Scanner;
 
 public class EmployeeRoutine {
-	
+
 	private GameLibrary gameLibrary;
 	private CustomerLibrary customerLibrary;
 	private AlbumLibrary albumLibrary;
 	private double rentProfit = 0;
 	Scanner scanner = new Scanner(System.in);
-	
+
 	public void RunEmployeeRoutine(GameLibrary gameLibrary, CustomerLibrary customerLibrary, AlbumLibrary albumLibrary)
 	{
-		this.gameLibrary = gameLibrary;
+		this.gameLibrary = gameLibrary; // initialize the lists needed.
 		this.customerLibrary = customerLibrary;
 		this.albumLibrary = albumLibrary;
-		
+
 		Print.printPasswordPrompt();
 		String input = scanner.nextLine();
 
@@ -34,6 +33,7 @@ public class EmployeeRoutine {
 						break;
 
 					case "2":
+						gameLibrary.printAllGames();
 						Print.printRemoveGame();
 						idToRemove = scanner.nextInt();
 						scanner.nextLine();
@@ -45,7 +45,9 @@ public class EmployeeRoutine {
 						break;
 
 					case "4":
+						customerLibrary.printAllCustomers();
 						Print.printRemoveCustomer();
+
 						id = scanner.nextInt();
 						scanner.nextLine();
 						customerLibrary.removeCustomer(id);
@@ -66,6 +68,7 @@ public class EmployeeRoutine {
 						break;
 
 					case "8":
+						albumLibrary.printAllAlbums();
 						Print.printRemoveSongAlbum();
 						idToRemove = scanner.nextInt();
 						scanner.nextLine();
@@ -92,7 +95,7 @@ public class EmployeeRoutine {
 		else
 			Print.printInvalidPassword();
 	}
-	
+
 	public void addNewGame()
 	{
 		Print.printCreateGame();
@@ -130,7 +133,7 @@ public class EmployeeRoutine {
 
 		customerLibrary.addCustomer(id, name, password);
 	}
-	
+
 	public void addNewSongAlbum()
 	{
 		Print.printCreateSongAlbum();
@@ -156,7 +159,7 @@ public class EmployeeRoutine {
 		albumLibrary.addAlbum(id, title, artist, releaseYear, rentPerDay);
 
 	}
-	
+
 	public void printRequestList()
 	{
 		for (Customer customer : customerLibrary.getPendingMembershipRequests())

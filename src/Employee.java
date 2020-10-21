@@ -1,3 +1,5 @@
+import java.util.Calendar;
+
 public class Employee
 {
 	//-----INSTANCE VARIABLES----
@@ -5,7 +7,7 @@ public class Employee
 	private String name;
 	private String address;
 	private int birthYear;
-	private int age;
+	private int year = Calendar.getInstance().get(Calendar.YEAR);
 	private double grossSalary;
 	private int bonus;
 	private final int bonusLow = 4000;
@@ -20,7 +22,6 @@ public class Employee
 		this.name = name;
 		this.birthYear = birthYear;
 		this.address = address;
-		this.age = 2020 - birthYear;
 		this.grossSalary = grossSalary;
 
 	}
@@ -34,24 +35,29 @@ public class Employee
 
 	public String toString()
 	{
+		int age = year - birthYear;
 		return id + ": " + name + " - " + birthYear + " (" + age + "): " +
 				address + " - " + grossSalary + "SEK";
 	}
 
 	public String employeeSalary()
 	{
-		if (grossSalary * 12 < 100000)
+		int lowSalary = 100000;
+		int monthsInYear = 12;
+
+		if (grossSalary * monthsInYear < lowSalary)
 		{
-			return "Monthly net salary: " + grossSalary + " - " + "Yearly net salary: " + (grossSalary * 12 + bonus);
+			return "Monthly net salary: " + grossSalary + " - " + "Yearly net salary: " + (grossSalary * monthsInYear + bonus);
 		}
 		else
 		{
-			return "Montlhy net salary: " + grossSalary * taxCut + " - " + "Yearly net salary: " + ((grossSalary * taxCut) * 12 + bonus);
+			return "Monthly net salary: " + grossSalary * taxCut + " - " + "Yearly net salary: " + ((grossSalary * taxCut) * monthsInYear + bonus);
 		}
 	}
 
 	public String employeeBonus()
 	{
+		int age = year - birthYear;
 		if (age < 22)
 		{
 			bonus = bonusLow;

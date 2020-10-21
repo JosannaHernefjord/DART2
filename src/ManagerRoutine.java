@@ -1,22 +1,21 @@
-
 import java.util.Scanner;
 
 public class ManagerRoutine {
-	
+
 	private EmployeeLibrary employeeLibrary;
 	private GameLibrary gameLibrary;
 	private AlbumLibrary albumLibrary;
 	private CustomerLibrary customerLibrary;
-	
+
 	Scanner scanner = new Scanner(System.in);
-	
+
 	public void RunManagerRoutine(EmployeeLibrary employeeLibrary, GameLibrary gameLibrary, AlbumLibrary albumLibrary, CustomerLibrary customerLibrary)
 	{
 		this.employeeLibrary = employeeLibrary;
 		this.gameLibrary = gameLibrary;
 		this.albumLibrary = albumLibrary;
 		this.customerLibrary = customerLibrary;
-		
+
 		Print.printPasswordPrompt();
 		String input = scanner.nextLine();
 
@@ -35,11 +34,12 @@ public class ManagerRoutine {
 
 					case "2":
 						System.out.println("---------------EMPLOYEES---------------");
-						employeeLibrary.printConsole();
+						employeeLibrary.printAllEmployees();
 						System.out.println("---------------------------------------");
 						break;
 
 					case "3":
+						employeeLibrary.printAllEmployees();
 						Print.printRemoveEmployee();
 						id = scanner.nextInt();
 						scanner.nextLine();
@@ -47,6 +47,7 @@ public class ManagerRoutine {
 						break;
 
 					case "4":
+						employeeLibrary.printAllEmployees();
 						Print.printViewEmployeeNetSalary();
 						id = scanner.nextInt();
 						scanner.nextLine();
@@ -54,6 +55,7 @@ public class ManagerRoutine {
 						break;
 
 					case "5":
+						employeeLibrary.printAllEmployees();
 						Print.printEmployeeBonus();
 						id = scanner.nextInt();
 						scanner.nextLine();
@@ -108,28 +110,28 @@ public class ManagerRoutine {
 		}
 		else Print.printInvalidPassword();
 	}
-	
+
 	public void addNewEmployee()
 	{
 		Print.printCreateEmployee();
 
 		System.out.print("ID: ");
 		int id = scanner.nextInt();
-		scanner.nextLine();            //Read next line to clear scanner buffer.
+		scanner.nextLine();
 
 		System.out.print("Name: ");
 		String name = scanner.nextLine();
 
 		System.out.print("Birth year: ");
 		int birthYear = scanner.nextInt();
-		scanner.nextLine();            //Read next line to clear scanner buffer.
+		scanner.nextLine();
 
 		System.out.print("Address: ");
 		String address = scanner.nextLine();
 
 		System.out.print("Monthly gross salary: ");
 		double grossSalary = scanner.nextDouble();
-		scanner.nextLine();            //Read next line to clear scanner buffer.
+		scanner.nextLine();
 
 		employeeLibrary.addEmployee(id, name, birthYear, address, grossSalary);
 	}

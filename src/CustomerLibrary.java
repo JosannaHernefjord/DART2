@@ -1,6 +1,4 @@
-
 import java.util.ArrayList;
-
 
 public class CustomerLibrary
 {
@@ -97,5 +95,13 @@ public class CustomerLibrary
 		}
 
 		return false;
+	}
+
+	public void printAllCustomers()
+	{
+		for(Customer customer : customerList)
+		{
+			System.out.println(customer.toString());
+		}
 	}
 }

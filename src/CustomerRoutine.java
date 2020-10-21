@@ -1,20 +1,19 @@
-
 import java.util.Scanner;
 
 public class CustomerRoutine {
-	
+
 	private GameLibrary gameLibrary;
 	private CustomerLibrary customerLibrary;
 	private AlbumLibrary albumLibrary;
 	private double rentProfit;
 	Scanner scanner = new Scanner(System.in);
-	
+
 	public void RunCustomerRoutine(GameLibrary gameLibrary, CustomerLibrary customerLibrary, AlbumLibrary albumLibrary)
 	{
 		this.gameLibrary = gameLibrary;
 		this.customerLibrary = customerLibrary;
 		this.albumLibrary = albumLibrary;
-		
+
 		String input = "";
 		Customer activeCustomer;
 
@@ -93,7 +92,7 @@ public class CustomerRoutine {
 			Print.printInvalidPassword();
 		}
 	}
-	
+
 	public void rentGame(Customer activeCustomer)
 	{
 		System.out.println("-----------------GAMES------------------");
@@ -124,7 +123,7 @@ public class CustomerRoutine {
 				System.out.println("Game with ID: " + id + " does not exist.");
 		}
 	}
-	
+
 	public void returnGame(Customer activeCustomer)
 	{
 		System.out.println("-----------------GAMES------------------");
@@ -155,7 +154,7 @@ public class CustomerRoutine {
 				activeCustomer.increaseCredits();
 				double cost = daysRented * gameLibrary.getDailyRent(id) * activeCustomer.discount();
 				rentProfit = rentProfit + cost;
-				activeCustomer.addRentProfit(cost);
+//				activeCustomer.addRentProfit(cost);
 				System.out.println("Game returned! You paid: " + cost + " kr.");
 			}
 
@@ -203,7 +202,7 @@ public class CustomerRoutine {
 				System.out.println("Game with ID: " + id + " does not exist.");
 		}
 	}
-	
+
 	public void rentAlbum(Customer activeCustomer)
 	{
 		System.out.println("-----------------ALBUMS-----------------");
@@ -235,7 +234,7 @@ public class CustomerRoutine {
 				System.out.println("Album with ID: " + id + " not found.");
 		}
 	}
-	
+
 	public void returnAlbum(Customer activeCustomer)
 	{
 		System.out.println("-----------------ALBUM------------------");
@@ -264,7 +263,7 @@ public class CustomerRoutine {
 				activeCustomer.increaseCredits();
 				double cost = daysRented * albumLibrary.getDailyRent(id) * activeCustomer.discount();
 				rentProfit = rentProfit + cost;
-				activeCustomer.addRentProfit(cost);
+//				activeCustomer.addRentProfit(cost);
 				System.out.println("Song album returned! You paid: " + cost + " kr.");
 			}
 
@@ -308,7 +307,7 @@ public class CustomerRoutine {
 				System.out.println("Album with ID: " + id + " does not exist.");
 		}
 	}
-	
+
 	private void sendMessage(int senderId)
 	{
 		System.out.println("Write recipient ID: ");
@@ -326,7 +325,7 @@ public class CustomerRoutine {
 			System.out.println("Customer not found.");
 		}
 	}
-	
+
 	public void searchItem()
 	{
 		System.out.println("What item do you wish to search for? Type one of the options below: \n1) Games \n2) Song albums");
