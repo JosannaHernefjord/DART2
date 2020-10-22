@@ -109,7 +109,7 @@ public class ManagerRoutine
 							exportTransactionData();
 						} catch (Exception e)
 						{
-							System.out.println("Unable to save data. Is path correct?");
+							System.out.println("Unable to export data. Is path correct?");
 						}
 						break;
 					}
