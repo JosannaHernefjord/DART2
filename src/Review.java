@@ -30,6 +30,11 @@ public class Review
 		return ratingValid;
 	}
 
+	public int getCustomerId()
+	{
+		return customerId;
+	}
+
 	public String toString()
 	{
 		if (ratingValid)

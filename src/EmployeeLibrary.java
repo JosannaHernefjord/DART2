@@ -19,7 +19,6 @@ public class EmployeeLibrary
 		{
 			Employee e = new Employee(id, name, birthYear, address, grossSalary);
 			employeeList.add(e);
-			System.out.println("Employee added!");
 		}
 		else if (grossSalary < 0)
 		{
@@ -33,11 +32,6 @@ public class EmployeeLibrary
 		{
 			System.out.println("Employee with ID: " + id + " already exist.");
 		}
-	}
-
-	public List<Employee> getEmployeeList()
-	{
-		return employeeList;
 	}
 
 	public void removeEmployee(int idToRemove)

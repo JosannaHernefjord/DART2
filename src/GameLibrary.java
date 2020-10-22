@@ -14,8 +14,6 @@ public class GameLibrary extends ItemLibrary
 		addItem(new Game(id, title, genre, dailyRent));
 	}
 
-
-
 	public void removeGame(int idToRemove)
 	{
 		removeItem(idToRemove);

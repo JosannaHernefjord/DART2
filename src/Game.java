@@ -18,11 +18,6 @@ public class Game extends ItemBase implements Item
 		return genre;
 	}
 
-	public String dataEntryString()
-	{
-		return "game," + getId() + "," + getTitle() + "," + genre + "," + getDailyRent();
-	}
-
 	public String toString()
 	{
 		String status = "Can be returned";

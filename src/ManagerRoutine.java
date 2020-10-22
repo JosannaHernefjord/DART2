@@ -106,7 +106,7 @@ public class ManagerRoutine
 					{
 						try
 						{
-							saveData();
+							exportTransactionData();
 						} catch (Exception e)
 						{
 							System.out.println("Unable to save data. Is path correct?");
@@ -229,7 +229,7 @@ public class ManagerRoutine
 		}
 	}
 
-	public void saveData() throws IOException
+	public void exportTransactionData() throws IOException
 	{
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter path and file name of where to save data:");
@@ -263,26 +263,28 @@ public class ManagerRoutine
 		for (Item item : albumLibrary.itemList)
 		{
 			Album album = (Album)item;
-			fileWriter.write(album.dataEntryString() + "\n");
+
+			for(Review review : item.getReviews())
+			{
+				double profit = review.getDaysRented()*album.getDailyRent();
+				String data = review.getCustomerId() + ";" + album.getId() + ";" + album.getTitle() + ";" + profit + "\n";
+				fileWriter.write(data);
+			}
 		}
 
 		for (Item item : gameLibrary.itemList)
 		{
 			Game game = (Game)item;
-			fileWriter.write(game.dataEntryString() + "\n");
-		}
 
-		for (Customer customer : customerLibrary.getCustomerList())
-		{
-			fileWriter.write(customer.dataEntryString() + "\n");
-		}
-
-		for (Employee employee : employeeLibrary.getEmployeeList())
-		{
-			fileWriter.write(employee.dataEntryString() + "\n");
+			for(Review review : item.getReviews())
+			{
+				double profit = review.getDaysRented()*game.getDailyRent();
+				String data = review.getCustomerId() + ";" + game.getId() + ";" + game.getTitle() + ";" + profit + "\n";
+				fileWriter.write(data);
+			}
 		}
 
 		fileWriter.close();
-		System.out.println("Data saved!");
+		System.out.println("Data exported!");
 	}
 }
