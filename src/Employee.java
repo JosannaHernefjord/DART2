@@ -55,6 +55,11 @@ public class Employee
 		}
 	}
 
+	public String dataEntryString()
+	{
+		return "employee," + getId() + "," + name + "," + birthYear + "," + address + "," + grossSalary;
+	}
+
 	public String employeeBonus()
 	{
 		int age = year - birthYear;

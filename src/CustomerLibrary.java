@@ -25,6 +25,11 @@ public class CustomerLibrary
 			System.out.println("Customer with ID: " + id + " already exist.");
 	}
 
+	public ArrayList<Customer> getCustomerList()
+	{
+		return customerList;
+	}
+
 	public void removeCustomer(int idToRemove)
 	{
 		boolean foundCustomer = false;        //False until proven true

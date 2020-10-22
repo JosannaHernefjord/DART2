@@ -113,6 +113,11 @@ public class Customer
 		}
 	}
 
+	public String dataEntryString()
+	{
+		return "customer," + getId() + "," + name + "," + password;
+	}
+
 	public boolean getsForFree()
 	{
 		if (credits >= 5)

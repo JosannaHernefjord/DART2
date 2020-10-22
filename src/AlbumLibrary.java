@@ -29,6 +29,11 @@ public class AlbumLibrary extends ItemLibrary
 		}
 	}
 
+	public ArrayList<Album> getAlbumList()
+	{
+		return albumList;
+	}
+
 	public void removeAlbum(int idToRemove)
 	{
 		boolean foundAlbum = false;

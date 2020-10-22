@@ -18,6 +18,11 @@ public class Album extends ItemBase implements Item
 		return releaseYear;
 	}
 
+	public String dataEntryString()
+	{
+		return "album," + getId() + "," + getTitle() + "," + artist + "," + releaseYear + "," + getDailyRent();
+	}
+
 	public String toString()
 	{
 		// if the album is available or not

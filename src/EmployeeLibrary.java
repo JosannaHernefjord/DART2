@@ -35,6 +35,11 @@ public class EmployeeLibrary
 		}
 	}
 
+	public List<Employee> getEmployeeList()
+	{
+		return employeeList;
+	}
+
 	public void removeEmployee(int idToRemove)
 	{
 		boolean foundEmployee = false;        //False until proven true
@@ -46,6 +51,7 @@ public class EmployeeLibrary
 				employeeList.remove(employee);        // Remove employee from gameList
 				foundEmployee = true;        //Employee found!
 				System.out.println("Employee removed.");
+				break;
 			}
 		}
 

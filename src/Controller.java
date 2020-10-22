@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Controller
@@ -27,7 +29,7 @@ public class Controller
 	{
 		String Input = "";
 
-		testSetup();
+		//testSetup();
 
 		while (!Input.equals("X"))
 		{
