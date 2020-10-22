@@ -178,7 +178,7 @@ public class ManagerRoutine
 			String entry = scanner.next();
 
 			Scanner entryScanner = new Scanner(entry);
-			entryScanner.useDelimiter(",");
+			entryScanner.useDelimiter(";");
 			entryScanner.useLocale(Locale.US);
 
 			String dataType = entryScanner.next();
@@ -260,8 +260,9 @@ public class ManagerRoutine
 
 		FileWriter fileWriter = new FileWriter(outputFile);
 
-		for (Album album : albumLibrary.getAlbumList())
+		for (Item item : albumLibrary.itemList)
 		{
+			Album album = (Album)item;
 			fileWriter.write(album.dataEntryString() + "\n");
 		}
 
