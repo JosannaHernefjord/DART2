@@ -175,9 +175,9 @@ public class ManagerRoutine
 
 		while (scanner.hasNext())
 		{
-			String entry = scanner.next();
+			String entry = scanner.next(); //reading the first line in the file and saving to entry
 
-			Scanner entryScanner = new Scanner(entry);
+			Scanner entryScanner = new Scanner(entry); //Creating a scanner that overlooks the entry line
 			entryScanner.useDelimiter(";");
 			entryScanner.useLocale(Locale.US);
 
@@ -234,13 +234,13 @@ public class ManagerRoutine
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter path and file name of where to save data:");
 		String path = scanner.nextLine();
-		File outputFile = new File(path);
+		File outputFile = new File(path); //Creating a file with the path address
 
-		if (outputFile.createNewFile())
+		if (outputFile.createNewFile()) //If the address/path is empty, we can create an outputFile
 		{
 			System.out.println("Output file created.");
 		}
-		else
+		else //If it already exists a file at that address/path
 		{
 			System.out.println("Output file already exists. This operation will " +
 					"overwrite existing data. Continue? (y/n)");
@@ -258,7 +258,7 @@ public class ManagerRoutine
 			}
 		}
 
-		FileWriter fileWriter = new FileWriter(outputFile);
+		FileWriter fileWriter = new FileWriter(outputFile); //Creating a FileWriter that writes in to this new file
 
 		for (Item item : albumLibrary.itemList)
 		{
