@@ -1,11 +1,12 @@
+package Project.Database;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class ItemLibrary
 {
-
-	protected ArrayList<Item> itemList;   //Instance variable
+	//-----INSTANCE VARIABLES----
+	protected ArrayList<Item> itemList;
 
 	//--------------CONSTRUCTOR---------
 	public ItemLibrary()
@@ -19,11 +20,17 @@ public class ItemLibrary
 		if (!contains(item.getId()))
 		{
 			itemList.add(item);
+			System.out.println("New item added!");
 		}
 		else
 		{
-			System.out.println("Game with ID: " + item.getId() + " already exist.");
+			System.out.println("Item with ID: " + item.getId() + " already exist.");
 		}
+	}
+
+	public ArrayList<Item> getItemList()
+	{
+		return itemList;
 	}
 
 	public void addReview(int id, Review review)
@@ -47,7 +54,7 @@ public class ItemLibrary
 			{
 				itemList.remove(item);
 				foundItem = true;
-				System.out.println("Game removed!");
+				System.out.println("Item removed!");
 				break;
 			}
 		}
@@ -121,7 +128,6 @@ public class ItemLibrary
 		return 0;
 	}
 
-	//prints all games in list to console
 	public void printAllItems()
 	{
 		Collections.sort(itemList);
@@ -148,7 +154,8 @@ public class ItemLibrary
 		{
 			if (item.getReviews().size() > 0)
 			{
-				System.out.println("ID: " + item.getId() + "  " + item.getTitle() + "  Times rented: " + item.getReviews().size());
+				System.out.println("ID: " + item.getId() + "  " + item.getTitle() +
+						"  Times rented: " + item.getReviews().size());
 			}
 		}
 	}
@@ -156,15 +163,24 @@ public class ItemLibrary
 	public void printMostProfitable()
 	{
 		itemList.trimToSize();
-		Item mostProfitableGame = itemList.get(0);
+		Item mostProfitableItem = itemList.get(0);
 
 		for (Item item : itemList)
 		{
-			if (mostProfitableGame.getTotalRentProfit() < item.getTotalRentProfit())
+			if (mostProfitableItem.getTotalRentProfit() < item.getTotalRentProfit())
 			{
-				mostProfitableGame = item;
+				mostProfitableItem = item;
 			}
 		}
-		System.out.println(mostProfitableGame.toString());
+
+		if(mostProfitableItem.getTotalRentProfit() == 0)
+		{
+			System.out.println("No items has been rented yet.");
+		}
+		else
+		{
+			System.out.println(mostProfitableItem.toString());
+		}
 	}
+
 }

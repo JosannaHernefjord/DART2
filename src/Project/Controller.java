@@ -1,5 +1,10 @@
 package Project;
 
+import Project.Database.AlbumLibrary;
+import Project.Database.CustomerLibrary;
+import Project.Database.EmployeeLibrary;
+import Project.Database.GameLibrary;
+
 import java.util.Scanner;
 
 public class Controller

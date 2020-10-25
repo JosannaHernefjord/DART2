@@ -1,5 +1,7 @@
 package Project;
 
+import Project.Database.*;
+
 import java.io.*;
 import java.util.Locale;
 import java.util.Scanner;
@@ -276,9 +278,9 @@ public class ManagerRoutine
 
 		FileWriter fileWriter = new FileWriter(outputFile); //Creating a FileWriter that writes in to this new file
 
-		for (Item item : albumLibrary.itemList)
+		for (Item item : albumLibrary.getItemList())
 		{
-			Album album = (Album)item; //Casting/parse to be sure that we get lib.Album in item
+			Album album = (Album)item; //Casting/parse to be sure that we get Album in item
 
 			for(Review review : item.getReviews())
 			{
@@ -288,9 +290,9 @@ public class ManagerRoutine
 			}
 		}
 
-		for (Item item : gameLibrary.itemList)
+		for (Item item : gameLibrary.getItemList())
 		{
-			Game game = (Game)item; //Casting/parse to be sure that we get lib.Game in item
+			Game game = (Game)item; //Casting/parse to be sure that we get Game in item
 
 			for(Review review : item.getReviews())
 			{

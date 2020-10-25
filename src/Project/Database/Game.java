@@ -1,4 +1,4 @@
-package Project;
+package Project.Database;
 
 public class Game extends ItemBase implements Item
 {

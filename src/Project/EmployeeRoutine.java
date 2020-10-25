@@ -1,5 +1,10 @@
 package Project;
 
+import Project.Database.AlbumLibrary;
+import Project.Database.Customer;
+import Project.Database.CustomerLibrary;
+import Project.Database.GameLibrary;
+
 import java.util.Scanner;
 
 public class EmployeeRoutine

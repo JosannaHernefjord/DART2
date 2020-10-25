@@ -1,4 +1,4 @@
-package Project;
+package Project.Database;
 
 public class Album extends ItemBase implements Item
 {

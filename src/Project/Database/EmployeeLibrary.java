@@ -1,4 +1,4 @@
-package Project;
+package Project.Database;
 
 import java.util.ArrayList;
 import java.util.List;

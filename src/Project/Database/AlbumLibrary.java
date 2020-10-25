@@ -1,4 +1,4 @@
-package Project;
+package Project.Database;
 
 public class AlbumLibrary extends ItemLibrary
 {
