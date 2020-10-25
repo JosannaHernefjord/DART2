@@ -1,10 +1,12 @@
+package Project;
 
 public class Album extends ItemBase implements Item
 {
-	//-----Song album attributes----
+	//---------INSTANCE VARIABLES-----------
 	private String artist;
 	private int releaseYear;
 
+	//-------CONSTRUCTOR--------
 	public Album(int id, String title, String artist, int releaseYear, double rentPerDay)
 	{
 		super(id, title, rentPerDay);
@@ -13,6 +15,7 @@ public class Album extends ItemBase implements Item
 		this.isAvailable = true;
 	}
 
+	//---------METHODS-----------
 	public int getReleaseYear()
 	{
 		return releaseYear;

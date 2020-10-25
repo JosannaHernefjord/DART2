@@ -1,11 +1,13 @@
+package Project;
+
 public class Message
 {
-
+	//-----INSTANCE VARIABLES----
 	private int senderId;
 	private String message;
 	private boolean isRead;
 
-
+	//--------------CONSTRUCTOR---------
 	public Message(int senderId, String message)
 	{
 		this.senderId = senderId;

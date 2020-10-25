@@ -1,10 +1,11 @@
+package Project;
 
 public class Game extends ItemBase implements Item
 {
 	//---------INSTANCE VARIABLES-----------
 	private String genre;
 
-	//Constructor
+	//-------CONSTRUCTOR--------
 	public Game(int id, String title, String genre, double dailyRent)
 	{
 		super(id, title, dailyRent);

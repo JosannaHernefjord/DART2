@@ -1,9 +1,14 @@
+package Project;
+
 public class Print
 {
 	public static void printManagerScreen()
 	{
 		System.out.println("Manager Screen - Type one of the options below:");
-		System.out.println("1. Add an employee \n2. View all employees \n3. Remove employee \n4. View employees net salary \n5. Give out bonus to employees \n6. Print game rent history \n7. Print album rent history \n8. Print most profitable Game \n9. Print most profitable Album \n10. Print most profitable Customer \n11. Print rent frequency of games and album \n12. Export transaction data to file\n13. Load program data from file\n14. Return to Main Menu");
+		System.out.println("1. Add an employee \n2. View all employees \n3. Remove employee \n4. View employees net salary " +
+				"\n5. Give out bonus to employees \n6. Print game rent history \n7. Print album rent history \n8. Print most profitable Game " +
+				"\n9. Print most profitable Album \n10. Print most profitable Customer \n11. Print rent frequency of games and album \n12. Export transaction data to file " +
+				"\n13. Load program data from file\n14. Return to Main Menu");
 	}
 
 	public static void printEmployeeScreen()
@@ -16,7 +21,9 @@ public class Print
 	public static void printCustomerScreen()
 	{
 		System.out.println("Customer Screen - Type one of the options below:");
-		System.out.println("1. Rent a game \n2. Return game \n3. Rent a song album \n4. Return song album \n5. Send request for membership upgrade \n6. View messages \n7. Send message \n8. Print games by rating \n9. Print albums by rating \n10. Search for item \n11. Log out and return to Main Menu");
+		System.out.println("1. Rent a game \n2. Return game \n3. Rent a song album \n4. Return song album " +
+				"\n5. Send request for membership upgrade \n6. View messages \n7. Send message \n8. Print games by rating " +
+				"\n9. Print albums by rating \n10. Search for item \n11. Log out and return to Main Menu");
 	}
 
 	public static void printMainScreen()

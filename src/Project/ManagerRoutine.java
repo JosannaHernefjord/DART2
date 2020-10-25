@@ -1,10 +1,12 @@
+package Project;
+
 import java.io.*;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class ManagerRoutine
 {
-
+	//---------INSTANCE VARIABLES-----------
 	private EmployeeLibrary employeeLibrary;
 	private GameLibrary gameLibrary;
 	private AlbumLibrary albumLibrary;
@@ -12,7 +14,8 @@ public class ManagerRoutine
 
 	Scanner scanner = new Scanner(System.in);
 
-	public void RunManagerRoutine(EmployeeLibrary employeeLibrary, GameLibrary gameLibrary, AlbumLibrary albumLibrary, CustomerLibrary customerLibrary)
+	public void RunManagerRoutine(EmployeeLibrary employeeLibrary, GameLibrary gameLibrary,
+								  AlbumLibrary albumLibrary, CustomerLibrary customerLibrary)
 	{
 		this.employeeLibrary = employeeLibrary;
 		this.gameLibrary = gameLibrary;
@@ -32,7 +35,14 @@ public class ManagerRoutine
 				switch (input)
 				{
 					case "1":
-						addNewEmployee();
+						try
+						{
+							addNewEmployee();
+						}
+						catch(Exception e)
+						{
+							Print.printInvalidInput();
+						}
 						break;
 
 					case "2":
@@ -42,7 +52,9 @@ public class ManagerRoutine
 						break;
 
 					case "3":
+						System.out.println("---------------EMPLOYEES---------------");
 						employeeLibrary.printAllEmployees();
+						System.out.println("---------------------------------------");
 						Print.printRemoveEmployee();
 						id = scanner.nextInt();
 						scanner.nextLine();
@@ -50,7 +62,9 @@ public class ManagerRoutine
 						break;
 
 					case "4":
+						System.out.println("---------------EMPLOYEES---------------");
 						employeeLibrary.printAllEmployees();
+						System.out.println("---------------------------------------");
 						Print.printViewEmployeeNetSalary();
 						id = scanner.nextInt();
 						scanner.nextLine();
@@ -58,7 +72,9 @@ public class ManagerRoutine
 						break;
 
 					case "5":
+						System.out.println("---------------EMPLOYEES---------------");
 						employeeLibrary.printAllEmployees();
+						System.out.println("---------------------------------------");
 						Print.printEmployeeBonus();
 						id = scanner.nextInt();
 						scanner.nextLine();
@@ -67,7 +83,7 @@ public class ManagerRoutine
 
 					case "6":
 						System.out.println("-------------Game rent history------------");
-						gameLibrary.printAllGames();
+						gameLibrary.printGamesHistory();
 						System.out.println("------------------------------------------");
 						break;
 
@@ -78,28 +94,28 @@ public class ManagerRoutine
 						break;
 
 					case "8":
-						System.out.println("--------Print most profitable game--------");
+						System.out.println("-----------Most profitable game----------");
 						gameLibrary.printMostProfitable();
 						System.out.println("------------------------------------------");
 						break;
 
 					case "9":
-						System.out.println("--------Print most profitable Album--------");
+						System.out.println("-----------Most profitable album----------");
 						albumLibrary.printMostProfitable();
 						System.out.println("-------------------------------------------");
 						break;
 
 					case "10":
-						System.out.println("-------Print most profitable Customer------");
+						System.out.println("---------Most profitable customer---------");
 						customerLibrary.printMostProfitable();
 						System.out.println("-------------------------------------------");
 						break;
 
 					case "11":
-						System.out.println("-----Print rent frequency of games and album -----");
+						System.out.println("----Rent frequency for games and albums----");
 						gameLibrary.printRentFrequency();
 						albumLibrary.printRentFrequency();
-						System.out.println("--------------------------------------------------");
+						System.out.println("--------------------------------------------");
 						break;
 
 					case "12":
@@ -109,7 +125,7 @@ public class ManagerRoutine
 							exportTransactionData();
 						} catch (Exception e)
 						{
-							System.out.println("Unable to export data. Is path correct?");
+							System.out.println("Unable to export data. Check if path is correct.");
 						}
 						break;
 					}
@@ -262,7 +278,7 @@ public class ManagerRoutine
 
 		for (Item item : albumLibrary.itemList)
 		{
-			Album album = (Album)item;
+			Album album = (Album)item; //Casting/parse to be sure that we get lib.Album in item
 
 			for(Review review : item.getReviews())
 			{
@@ -274,7 +290,7 @@ public class ManagerRoutine
 
 		for (Item item : gameLibrary.itemList)
 		{
-			Game game = (Game)item;
+			Game game = (Game)item; //Casting/parse to be sure that we get lib.Game in item
 
 			for(Review review : item.getReviews())
 			{

@@ -1,3 +1,5 @@
+package Project;
+
 import java.util.Calendar;
 
 public class Employee
@@ -66,17 +68,17 @@ public class Employee
 		if (age < 22)
 		{
 			bonus = bonusLow;
-			return "Employee will receive 4000SEK in bonus";
+			return "lib.Employee will receive 4000SEK in bonus";
 		}
 		else if (age <= 30)
 		{
 			bonus = bonusMedium;
-			return "Employee will receive 6000SEK in bonus";
+			return "lib.Employee will receive 6000SEK in bonus";
 		}
 		else
 		{
 			bonus = bonusHigh;
-			return "Employee will receive 7500SEK in bonus";
+			return "lib.Employee will receive 7500SEK in bonus";
 		}
 	}
 }

@@ -1,17 +1,21 @@
+package Project;
+
 public class Review
 {
+	//---------INSTANCE VARIABLES-------
 	private int customerId;
 	private int daysRented;
 	private int rating;
-	private String review;
+	private String writtenReview;
 	private boolean ratingValid;
 
-	public Review(int customerId, int daysRented, int rating, String review, boolean ratingValid)
+	//--------------CONSTRUCTOR---------
+	public Review(int customerId, int daysRented, int rating, String writtenReview, boolean ratingValid)
 	{
 		this.customerId = customerId;
 		this.daysRented = daysRented;
 		this.rating = rating;
-		this.review = review;
+		this.writtenReview = writtenReview;
 		this.ratingValid = ratingValid;
 	}
 
@@ -38,7 +42,8 @@ public class Review
 	public String toString()
 	{
 		if (ratingValid)
-			return "Customer id: " + customerId + " Days rented: " + daysRented + " Rating: " + rating + " Review: " + review;
+			return "Customer id: " + customerId + " Days rented: " + daysRented + " Rating: "
+					+ rating + " Review: " + writtenReview;
 		else
 			return "Customer id: " + customerId + " Days rented: " + daysRented;
 	}

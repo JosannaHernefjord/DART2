@@ -1,3 +1,4 @@
+package Project;
 
 public class GameLibrary extends ItemLibrary
 {
@@ -29,7 +30,6 @@ public class GameLibrary extends ItemLibrary
 		returnItem(id);
 	}
 
-	//prints all games in list to console
 	public void printAllGames()
 	{
 		printAllItems();

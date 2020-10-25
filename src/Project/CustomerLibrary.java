@@ -1,3 +1,5 @@
+package Project;
+
 import java.util.ArrayList;
 
 public class CustomerLibrary
@@ -16,32 +18,43 @@ public class CustomerLibrary
 	//--------------METHODS------------
 	public void addCustomer(int id, String name, String password)
 	{
-		if (!contains(id))
+		if (contains(id))
 		{
-			Customer c = new Customer(id, name, password);
-			customerList.add(c);
+			System.out.println("Employee with ID: " + id + " already exist.");
+		}
+		else if (name.isEmpty())
+		{
+			System.out.println("Invalid data. Employee name cannot be empty.");
+		}
+		else if(password.isEmpty())
+		{
+			System.out.println("Invalid data. Password can not be empty.");
 		}
 		else
-			System.out.println("Customer with ID: " + id + " already exist.");
+		{
+			Customer customer = new Customer(id, name, password);
+			customerList.add(customer);
+			System.out.println("Customer added!");
+		}
 	}
 
 	public void removeCustomer(int idToRemove)
 	{
 		boolean foundCustomer = false;        //False until proven true
 
-		for (Customer customer : customerList)        //For each Customer "c" in customerList
+		for (Customer customer : customerList)        //For each lib.Customer "c" in customerList
 		{
 			if (customer.getId() == idToRemove)        //If c's ID == idToRemove
 			{
 				customerList.remove(customer);        // Remove c from customerList
-				foundCustomer = true;        //Customer found!
+				foundCustomer = true;        //lib.Customer found!
 				break;                        //No use in looking any more
 			}
 		}
 
 		if (!foundCustomer)    //If ID was not found in the list
 		{
-			System.out.println("Customer with ID: " + idToRemove + " was not found.");
+			System.out.println("lib.Customer with ID: " + idToRemove + " was not found.");
 		}
 	}
 

@@ -1,15 +1,18 @@
+package Project;
+
 import java.util.Scanner;
 
 public class CustomerRoutine
 {
-
+	//---------INSTANCE VARIABLES-----------
 	private GameLibrary gameLibrary;
 	private CustomerLibrary customerLibrary;
 	private AlbumLibrary albumLibrary;
 	private double rentProfit;
 	Scanner scanner = new Scanner(System.in);
 
-	public void RunCustomerRoutine(GameLibrary gameLibrary, CustomerLibrary customerLibrary, AlbumLibrary albumLibrary)
+	public void RunCustomerRoutine(GameLibrary gameLibrary, CustomerLibrary customerLibrary,
+								   AlbumLibrary albumLibrary)
 	{
 		this.gameLibrary = gameLibrary;
 		this.customerLibrary = customerLibrary;
@@ -32,19 +35,31 @@ public class CustomerRoutine
 				input = scanner.nextLine();
 				switch (input)
 				{
-					case "1":     // Rent a game
+					case "1":
+						System.out.println("-----------------GAMES------------------");
+						gameLibrary.printAllGames();
+						System.out.println("----------------------------------------");
 						rentGame(activeCustomer);
 						break;
 
-					case "2":        //Return a game
+					case "2":
+						System.out.println("-----------------GAMES------------------");
+						gameLibrary.printAllGames();
+						System.out.println("----------------------------------------");
 						returnGame(activeCustomer);
 						break;
 
-					case "3":            //rent an album
+					case "3":
+						System.out.println("-----------------ALBUMS-----------------");
+						albumLibrary.printAllAlbums();
+						System.out.println("----------------------------------------");
 						rentAlbum(activeCustomer);
 						break;
 
-					case "4":            // return an album
+					case "4":
+						System.out.println("-----------------ALBUMS-----------------");
+						albumLibrary.printAllAlbums();
+						System.out.println("----------------------------------------");
 						returnAlbum(activeCustomer);
 						break;
 
@@ -58,7 +73,17 @@ public class CustomerRoutine
 						break;
 
 					case "7":
-						sendMessage(activeCustomer.getId());
+						try
+						{
+							System.out.println("----------------CUSTOMERS---------------");
+							customerLibrary.printAllCustomers();
+							System.out.println("----------------------------------------");
+							sendMessage(activeCustomer.getId());
+						}
+						catch(Exception e)
+						{
+							Print.printInvalidInput();
+						}
 						break;
 
 					case "8":
@@ -96,9 +121,6 @@ public class CustomerRoutine
 
 	public void rentGame(Customer activeCustomer)
 	{
-		System.out.println("-----------------GAMES------------------");
-		gameLibrary.printAllGames();
-		System.out.println("----------------------------------------");
 		System.out.println("Write the ID of the game you want to rent: ");
 		int id = scanner.nextInt();
 		scanner.nextLine();
@@ -127,10 +149,6 @@ public class CustomerRoutine
 
 	public void returnGame(Customer activeCustomer)
 	{
-		System.out.println("-----------------GAMES------------------");
-		gameLibrary.printAllGames();
-		System.out.println("----------------------------------------");
-
 		System.out.println("Enter the following information: ");
 
 		System.out.print("ID of game to return: ");
@@ -155,7 +173,7 @@ public class CustomerRoutine
 				activeCustomer.increaseCredits();
 				double cost = daysRented * gameLibrary.getDailyRent(id) * activeCustomer.discount();
 				rentProfit = rentProfit + cost;
-//				activeCustomer.addRentProfit(cost);
+				activeCustomer.addRentProfit(cost);
 				System.out.println("Game returned! You paid: " + cost + " kr.");
 			}
 
@@ -168,9 +186,11 @@ public class CustomerRoutine
 			if (input.equals("y"))
 			{
 				isValidRating = true;
-				System.out.println("Enter a rate from 0 to 5: ");
+				System.out.println("Enter a rate between 0-5: ");
 				rating = scanner.nextInt();
 				scanner.nextLine();
+
+				System.out.println("Thank you for your rating!");
 
 				while (rating < 0 || rating > 5)
 				{
@@ -187,6 +207,7 @@ public class CustomerRoutine
 					System.out.println("Write your review: ");
 					review = scanner.nextLine();
 				}
+				System.out.println("Thank you for your review!");
 			}
 
 			gameLibrary.addReview(id, new Review(activeCustomer.getId(), daysRented, rating, review, isValidRating));
@@ -206,10 +227,6 @@ public class CustomerRoutine
 
 	public void rentAlbum(Customer activeCustomer)
 	{
-		System.out.println("-----------------ALBUMS-----------------");
-		albumLibrary.printAllAlbums();
-		System.out.println("----------------------------------------");
-
 		System.out.println("Which album would you like to rent? ID: ");
 		int id = scanner.nextInt();
 		scanner.nextLine();
@@ -238,10 +255,6 @@ public class CustomerRoutine
 
 	public void returnAlbum(Customer activeCustomer)
 	{
-		System.out.println("-----------------ALBUM------------------");
-		albumLibrary.printAllAlbums();
-		System.out.println("----------------------------------------");
-
 		System.out.println("Which album would you like to return? ID: ");
 		int id = scanner.nextInt();
 		scanner.nextLine();
@@ -264,7 +277,7 @@ public class CustomerRoutine
 				activeCustomer.increaseCredits();
 				double cost = daysRented * albumLibrary.getDailyRent(id) * activeCustomer.discount();
 				rentProfit = rentProfit + cost;
-//				activeCustomer.addRentProfit(cost);
+				activeCustomer.addRentProfit(cost);
 				System.out.println("Song album returned! You paid: " + cost + " kr.");
 			}
 
@@ -277,9 +290,10 @@ public class CustomerRoutine
 			if (input.equals("y"))
 			{
 				isValidRating = true;
-				System.out.println("Print a review from 0 to 5: ");
+				System.out.println("Print a review between 0-5: ");
 				rating = scanner.nextInt();
 				scanner.nextLine();
+				System.out.println("Thank you for your rating!");
 
 				while (rating < 0 || rating > 5)
 				{
@@ -296,6 +310,7 @@ public class CustomerRoutine
 					System.out.println("Write your review: ");
 					review = scanner.nextLine();
 				}
+				System.out.println("Thank you for your review!");
 			}
 
 			albumLibrary.addReview(id, new Review(activeCustomer.getId(), daysRented, rating, review, isValidRating));
@@ -351,4 +366,5 @@ public class CustomerRoutine
 			Print.printInvalidInput();
 		}
 	}
+
 }

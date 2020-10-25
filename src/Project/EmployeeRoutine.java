@@ -1,15 +1,18 @@
+package Project;
+
 import java.util.Scanner;
 
 public class EmployeeRoutine
 {
-
+	//---------INSTANCE VARIABLES-----------
 	private GameLibrary gameLibrary;
 	private CustomerLibrary customerLibrary;
 	private AlbumLibrary albumLibrary;
 	private double rentProfit = 0;
 	Scanner scanner = new Scanner(System.in);
 
-	public void RunEmployeeRoutine(GameLibrary gameLibrary, CustomerLibrary customerLibrary, AlbumLibrary albumLibrary)
+	public void RunEmployeeRoutine(GameLibrary gameLibrary, CustomerLibrary customerLibrary,
+								   AlbumLibrary albumLibrary)
 	{
 		this.gameLibrary = gameLibrary;   // initialize the lists needed.
 		this.customerLibrary = customerLibrary;
@@ -30,7 +33,13 @@ public class EmployeeRoutine
 				switch (input)
 				{
 					case "1":
-						addNewGame();
+						try
+						{
+							addNewGame();
+						} catch (Exception e)
+						{
+							Print.printInvalidInput();
+						}
 						break;
 
 					case "2":
@@ -38,13 +47,27 @@ public class EmployeeRoutine
 						gameLibrary.printAllGames();
 						System.out.println("-----------------------------------");
 						Print.printRemoveGame();
+
+						try
+						{
 						idToRemove = scanner.nextInt();
 						scanner.nextLine();
 						gameLibrary.removeGame(idToRemove);
+						}
+						catch (Exception e)
+						{
+						Print.printInvalidInput();
+						}
 						break;
 
 					case "3":
-						addCustomer();
+						try
+						{
+							addCustomer();
+						} catch (Exception e)
+						{
+							Print.printInvalidInput();
+						}
 						break;
 
 					case "4":
@@ -52,10 +75,16 @@ public class EmployeeRoutine
 						customerLibrary.printAllCustomers();
 						System.out.println("-------------------------------------");
 						Print.printRemoveCustomer();
-
-						id = scanner.nextInt();
-						scanner.nextLine();
-						customerLibrary.removeCustomer(id);
+						try
+						{
+							id = scanner.nextInt();
+							scanner.nextLine();
+							customerLibrary.removeCustomer(id);
+						}
+						catch(Exception e)
+						{
+						Print.printInvalidInput();
+						}
 						break;
 
 					case "5":
@@ -69,7 +98,14 @@ public class EmployeeRoutine
 						break;
 
 					case "7":
-						addNewSongAlbum();
+						try
+						{
+							addNewSongAlbum();
+						}
+						catch(Exception e)
+						{
+							Print.printInvalidInput();
+						}
 						break;
 
 					case "8":
@@ -77,9 +113,16 @@ public class EmployeeRoutine
 						albumLibrary.printAllAlbums();
 						System.out.println("---------------------------------------");
 						Print.printRemoveSongAlbum();
-						idToRemove = scanner.nextInt();
-						scanner.nextLine();
-						albumLibrary.removeAlbum(idToRemove);
+						try
+						{
+							idToRemove = scanner.nextInt();
+							scanner.nextLine();
+							albumLibrary.removeAlbum(idToRemove);
+						}
+						catch(Exception e)
+						{
+							Print.printInvalidInput();
+						}
 						break;
 
 					case "9":

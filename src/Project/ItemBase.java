@@ -1,7 +1,10 @@
+package Project;
+
 import java.util.ArrayList;
 
 public abstract class ItemBase
 {
+	//---------INSTANCE VARIABLES-----------
 	private int id;
 	private double totalRentProfit;
 	private String title;
@@ -87,12 +90,12 @@ public abstract class ItemBase
 	{
 		if (this.getAverageRating() < item.getAverageRating())
 		{
-			return -1;
+			return 1;
 
 		}
 		else if (this.getAverageRating() > item.getAverageRating())
 		{
-			return 1;
+			return -1;
 
 		}
 		else

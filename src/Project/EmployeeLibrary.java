@@ -1,3 +1,5 @@
+package Project;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,22 +17,27 @@ public class EmployeeLibrary
 	//--------------METHODS------------
 	public void addEmployee(int id, String name, int birthYear, String address, double grossSalary)
 	{
-		if (grossSalary >= 0 && !name.isEmpty() && !contains(id))
+		if (contains(id))
 		{
-			Employee e = new Employee(id, name, birthYear, address, grossSalary);
-			employeeList.add(e);
-		}
-		else if (grossSalary < 0)
-		{
-			System.out.println("Invalid data. Employee salary cannot be negative.");
+			System.out.println("Employee with ID: " + id + " already exist.");
 		}
 		else if (name.isEmpty())
 		{
 			System.out.println("Invalid data. Employee name cannot be empty.");
 		}
-		else if (contains(id))
+		else if (birthYear < 0)
 		{
-			System.out.println("Employee with ID: " + id + " already exist.");
+			System.out.println("Invalid data. Employee birth year cannot be negative.");
+		}
+		else if (grossSalary < 0)
+		{
+			System.out.println("Invalid data. Employee salary cannot be negative.");
+		}
+		else
+		{
+			Employee e = new Employee(id, name, birthYear, address, grossSalary);
+			employeeList.add(e);
+			System.out.println("Employee added! ");
 		}
 	}
 
@@ -114,5 +121,4 @@ public class EmployeeLibrary
 
 		return false;
 	}
-
 }
