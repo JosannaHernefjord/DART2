@@ -43,20 +43,20 @@ public class EmployeeLibrary
 
 	public void removeEmployee(int idToRemove)
 	{
-		boolean foundEmployee = false;        //False until proven true
+		boolean foundEmployee = false;
 
-		for (Employee employee : employeeList)        //For each Employee "employee" in EmployeeList
+		for (Employee employee : employeeList)
 		{
-			if (employee.getId() == idToRemove)        //If employee's ID == idToRemove
+			if (employee.getId() == idToRemove)
 			{
-				employeeList.remove(employee);        // Remove employee from gameList
-				foundEmployee = true;        //Employee found!
+				employeeList.remove(employee);
+				foundEmployee = true;
 				System.out.println("Employee removed.");
 				break;
 			}
 		}
 
-		if (!foundEmployee)    //If ID was not found in the list
+		if (!foundEmployee)
 		{
 			System.out.println("Employee with ID: " + idToRemove + " was not found.");
 		}
@@ -64,9 +64,9 @@ public class EmployeeLibrary
 
 	public void printAllEmployees()
 	{
-		for (Employee employee : employeeList)                //For each  "employee" in employeeList
+		for (Employee employee : employeeList)
 		{
-			System.out.println(employee.toString());        //Print the employee info
+			System.out.println(employee.toString());
 		}
 	}
 
@@ -84,23 +84,23 @@ public class EmployeeLibrary
 			}
 		}
 
-		if (!foundEmployee)        //If ID was not found in the list
+		if (!foundEmployee)
 		{
 			System.out.println("Employee with ID: " + id + " was not found.");
 		}
 	}
 
-	public void printBonus(int id)
+	public void addBonus(int id)
 	{
-		boolean foundEmployee = false;        //False until proven true
+		boolean foundEmployee = false;
 
-		for (Employee employee : employeeList)        //For each Employee "employee" in customerList
+		for (Employee employee : employeeList)
 		{
-			if (employee.getId() == id)                //If employee's ID == idToRemove
+			if (employee.getId() == id)
 			{
-				System.out.println(employee.employeeBonus());    //Remove employee from customerList
-				foundEmployee = true;                    //Employee found!
-				break;                                    ////No use in looking any more
+				System.out.println(employee.employeeBonus());
+				foundEmployee = true;
+				break;
 			}
 		}
 		if (!foundEmployee)

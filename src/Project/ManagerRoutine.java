@@ -78,7 +78,7 @@ public class ManagerRoutine
 						Print.printEmployeeBonus();
 						id = scanner.nextInt();
 						scanner.nextLine();
-						employeeLibrary.printBonus(id);
+						employeeLibrary.addBonus(id);
 						break;
 
 					case "6":
